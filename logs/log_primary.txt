@@ -1,0 +1,42 @@
+[ec2-user@ip-10-1-10-138 ~]$ mysql -u admin -p -h udacity-primary-mysql.coydccb6hhko.us-east-1.rds.amazonaws.com
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 43
+Server version: 8.0.28 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.01 sec)
+
+MySQL [(none)]> use udacity;
+Database changed
+MySQL [udacity]> CREATE TABLE Persons (
+    ->     PersonID int,
+    ->     LastName varchar(255),
+    ->     FirstName varchar(255),
+    ->     Address varchar(255),
+    ->     City varchar(255)
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+MySQL [udacity]> insert into Persons (PersonID, LastName, FirstName, Address, City) values (567, 'Thompson', 'Charles', '214 Nanuet Drive', 'New York');
+Query OK, 1 row affected (0.01 sec)
+'
+MySQL [udacity]> select * from Persons;
++----------+----------+-----------+------------------+----------+
+| PersonID | LastName | FirstName | Address          | City     |
++----------+----------+-----------+------------------+----------+
+|      567 | Thompson | Charles   | 214 Nanuet Drive | New York |
++----------+----------+-----------+------------------+----------+
+1 row in set (0.00 sec)

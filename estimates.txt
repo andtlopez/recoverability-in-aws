@@ -1,0 +1,8 @@
+We've already established that we offer high availability of our systems, but in the event of a single AZ outage of your database happens, it can take a maximum of 5 minutes RTO 
+before your database comes up again as we've setup a standby replica in another AZ and Multi-AZ has been enabled. In the event of a single region database outage however, it 
+can take a maximum of 30 mins RTO for your database to come up again as manual intervention is needed to promote the replica in another region and it may take time for the process 
+to complete.
+
+For data loss, in case of a single AZ outage happens, 0 RPO (no loss of data) will occur since we've setup a standby replica in another AZ and Multi-AZ has been enabled as 
+previously discussed. For a single region database outage however, a maximum of 10 mins RPO is expected since our system takes snapshots of your database of the same 
+time frame.
